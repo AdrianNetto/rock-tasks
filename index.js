@@ -5,6 +5,7 @@ const fs = require('fs');
 require("dotenv").config();
 
 const prodToken = process.env.PROD_TOKEN;
+const name = "Netto";
 
 if (!prodToken) {
   console.error('PROD_TOKEN is not set in the environment variables!');
@@ -40,7 +41,7 @@ async function createOOO(minutes, description) {
   const formattedTime = formatTime(OOODate.getHours(), OOODate.getMinutes());
 
   const payload = {
-    title: "OOO - Netto",
+    title: `OOO - ${name}`,
     listId: 3,
     due: unixTime,
     body: [
@@ -52,7 +53,7 @@ async function createOOO(minutes, description) {
     owners: [process.env.OWNER_ID],
   };
 
-  console.log("🗡️ Sistema de Criação de OOO - Netto🗡️");
+  console.log(`🗡️ OOO Creation System - ${name}`);
   console.log("\nWelcome, Lord! 🧙‍♂️");
   console.log("Are you ready to create your OOO? ⛵");
   console.log("Please, confirm the following information:");
